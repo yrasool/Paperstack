@@ -1,0 +1,277 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2200" viewBox="0 0 1800 2200" role="img" aria-labelledby="title desc">
+  <title id="title">Paperstack project structure</title>
+  <desc id="desc">Black and white structural diagram showing Paperstack files, folders, and connections.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .ink { fill: #111; }
+      .muted { fill: #555; }
+      .paper { fill: #fffdf7; stroke: #111; stroke-width: 2; }
+      .folder { fill: #f1eee5; stroke: #111; stroke-width: 2.5; }
+      .external { fill: #111; stroke: #111; stroke-width: 2; }
+      .externalText { fill: #fff; }
+      .line { stroke: #111; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .softLine { stroke: #666; stroke-width: 1.6; fill: none; stroke-dasharray: 7 7; marker-end: url(#arrowSoft); }
+      .caption { font: 400 22px Georgia, serif; letter-spacing: .2px; }
+      .label { font: 700 24px Georgia, serif; }
+      .small { font: 400 18px Georgia, serif; }
+      .tiny { font: 400 15px Georgia, serif; }
+      .mono { font: 700 17px Consolas, "Courier New", monospace; }
+      .section { font: 700 30px Georgia, serif; letter-spacing: 4px; }
+      .title { font: 700 72px Georgia, serif; }
+      .subtitle { font: 400 26px Georgia, serif; }
+      .rule { stroke: #111; stroke-width: 2; }
+      .thinRule { stroke: #999; stroke-width: 1; }
+    </style>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#111" />
+    </marker>
+    <marker id="arrowSoft" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#666" />
+    </marker>
+    <pattern id="newsprint" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M0 4 H24 M0 12 H24 M0 20 H24" stroke="#ddd8cd" stroke-width="1" />
+      <path d="M4 0 V24 M16 0 V24" stroke="#ebe6db" stroke-width="1" />
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="6" dy="8" stdDeviation="0" flood-color="#111" flood-opacity=".14" />
+    </filter>
+  </defs>
+
+  <rect class="bg" width="1800" height="2200" />
+  <rect x="34" y="34" width="1732" height="2132" fill="url(#newsprint)" opacity=".7" />
+  <line class="rule" x1="70" y1="166" x2="1730" y2="166" />
+  <line class="rule" x1="70" y1="2046" x2="1730" y2="2046" />
+
+  <text class="title ink" x="70" y="112">Paperstack File Map</text>
+  <text class="subtitle muted" x="74" y="150">Every shipped folder, each important file, and how the project connects at runtime.</text>
+
+  <!-- External request layer -->
+  <rect class="external" x="70" y="215" width="360" height="92" rx="24" filter="url(#shadow)" />
+  <text class="label externalText" x="105" y="255">Browser</text>
+  <text class="small externalText" x="105" y="282">User opens /?decade=1930</text>
+
+  <rect class="external" x="1395" y="215" width="335" height="92" rx="24" filter="url(#shadow)" />
+  <text class="label externalText" x="1430" y="255">Cloudflare</text>
+  <text class="small externalText" x="1430" y="282">Workers, D1, R2, AI</text>
+
+  <!-- app folder -->
+  <rect class="folder" x="70" y="375" width="740" height="605" rx="28" filter="url(#shadow)" />
+  <text class="section ink" x="110" y="430">APP / NEXT ROUTES</text>
+  <line class="thinRule" x1="110" y1="454" x2="770" y2="454" />
+
+  <rect class="paper" x="110" y="490" width="310" height="122" rx="18" />
+  <text class="mono ink" x="135" y="525">app/page.tsx</text>
+  <text class="small muted" x="135" y="555">Main server React page.</text>
+  <text class="small muted" x="135" y="582">Reads URL filters and renders</text>
+  <text class="small muted" x="135" y="607">decade newspaper wall.</text>
+
+  <rect class="paper" x="460" y="490" width="310" height="122" rx="18" />
+  <text class="mono ink" x="485" y="525">app/layout.tsx</text>
+  <text class="small muted" x="485" y="555">Root HTML shell.</text>
+  <text class="small muted" x="485" y="582">Site metadata and font</text>
+  <text class="small muted" x="485" y="607">preconnect links.</text>
+
+  <rect class="paper" x="110" y="645" width="310" height="122" rx="18" />
+  <text class="mono ink" x="135" y="680">app/globals.css</text>
+  <text class="small muted" x="135" y="710">Whole visual system.</text>
+  <text class="small muted" x="135" y="737">Black newspaper UI, layout,</text>
+  <text class="small muted" x="135" y="762">cards, type, spacing.</text>
+
+  <rect class="paper" x="460" y="645" width="310" height="122" rx="18" />
+  <text class="mono ink" x="485" y="680">app/error.tsx</text>
+  <text class="small muted" x="485" y="710">Client error boundary.</text>
+  <text class="small muted" x="485" y="737">Shown if a route crashes</text>
+  <text class="small muted" x="485" y="762">after rendering starts.</text>
+
+  <rect class="paper" x="110" y="800" width="310" height="122" rx="18" />
+  <text class="mono ink" x="135" y="835">app/not-found.tsx</text>
+  <text class="small muted" x="135" y="865">404 page.</text>
+  <text class="small muted" x="135" y="892">Used when Next cannot</text>
+  <text class="small muted" x="135" y="917">match a route.</text>
+
+  <rect class="paper" x="460" y="800" width="310" height="122" rx="18" />
+  <text class="mono ink" x="485" y="835">app/api/media/...</text>
+  <text class="small muted" x="485" y="865">Media API route.</text>
+  <text class="small muted" x="485" y="892">Validates kind/id and calls</text>
+  <text class="small muted" x="485" y="917">streamCachedMedia().</text>
+
+  <!-- components -->
+  <rect class="folder" x="890" y="375" width="390" height="300" rx="28" filter="url(#shadow)" />
+  <text class="section ink" x="930" y="430">COMPONENTS</text>
+  <line class="thinRule" x1="930" y1="454" x2="1240" y2="454" />
+
+  <rect class="paper" x="930" y="490" width="310" height="78" rx="18" />
+  <text class="mono ink" x="955" y="523">PaperCard.tsx</text>
+  <text class="small muted" x="955" y="550">Displays one newspaper record.</text>
+
+  <rect class="paper" x="930" y="585" width="310" height="78" rx="18" />
+  <text class="mono ink" x="955" y="618">ArchiveBackgroundScene.tsx</text>
+  <text class="small muted" x="955" y="645">Three.js newspaper background.</text>
+
+  <!-- lib -->
+  <rect class="folder" x="890" y="750" width="840" height="640" rx="28" filter="url(#shadow)" />
+  <text class="section ink" x="930" y="805">SRC / LIB</text>
+  <line class="thinRule" x1="930" y1="829" x2="1688" y2="829" />
+
+  <rect class="paper" x="930" y="865" width="350" height="125" rx="18" />
+  <text class="mono ink" x="955" y="900">archive.ts</text>
+  <text class="small muted" x="955" y="930">Main backend logic.</text>
+  <text class="small muted" x="955" y="957">Parses filters, builds SQL,</text>
+  <text class="small muted" x="955" y="984">cleans records, formats output.</text>
+
+  <rect class="paper" x="1338" y="865" width="350" height="125" rx="18" />
+  <text class="mono ink" x="1363" y="900">db.ts</text>
+  <text class="small muted" x="1363" y="930">Small D1 binding helper.</text>
+  <text class="small muted" x="1363" y="957">Gives archive.ts access to</text>
+  <text class="small muted" x="1363" y="984">Cloudflare database binding.</text>
+
+  <rect class="paper" x="930" y="1025" width="350" height="125" rx="18" />
+  <text class="mono ink" x="955" y="1060">media.ts</text>
+  <text class="small muted" x="955" y="1090">Media proxy/cache logic.</text>
+  <text class="small muted" x="955" y="1117">Finds media URL, checks R2,</text>
+  <text class="small muted" x="955" y="1144">fetches upstream if missing.</text>
+
+  <rect class="paper" x="1338" y="1025" width="350" height="125" rx="18" />
+  <text class="mono ink" x="1363" y="1060">historicalEvents.ts</text>
+  <text class="small muted" x="1363" y="1090">Decade/event labels.</text>
+  <text class="small muted" x="1363" y="1117">Used by archive logic to add</text>
+  <text class="small muted" x="1363" y="1144">context to records.</text>
+
+  <rect class="paper" x="930" y="1185" width="350" height="125" rx="18" />
+  <text class="mono ink" x="955" y="1220">translations.ts</text>
+  <text class="small muted" x="955" y="1250">Translation helper.</text>
+  <text class="small muted" x="955" y="1277">Calls AI enrichment when</text>
+  <text class="small muted" x="955" y="1304">records need English text.</text>
+
+  <rect class="paper" x="1338" y="1185" width="350" height="125" rx="18" />
+  <text class="mono ink" x="1363" y="1220">aiEnrichment.ts</text>
+  <text class="small muted" x="1363" y="1250">Workers AI helper.</text>
+  <text class="small muted" x="1363" y="1277">Classifies/translates records</text>
+  <text class="small muted" x="1363" y="1304">outside the main page path.</text>
+
+  <!-- pages -->
+  <rect class="folder" x="70" y="1055" width="740" height="310" rx="28" filter="url(#shadow)" />
+  <text class="section ink" x="110" y="1110">PAGES / FALLBACKS</text>
+  <line class="thinRule" x1="110" y1="1134" x2="770" y2="1134" />
+
+  <rect class="paper" x="110" y="1170" width="145" height="78" rx="16" />
+  <text class="mono ink" x="132" y="1203">_app.tsx</text>
+  <text class="tiny muted" x="132" y="1230">Legacy wrapper.</text>
+
+  <rect class="paper" x="280" y="1170" width="170" height="78" rx="16" />
+  <text class="mono ink" x="302" y="1203">_document.tsx</text>
+  <text class="tiny muted" x="302" y="1230">HTML document.</text>
+
+  <rect class="paper" x="475" y="1170" width="145" height="78" rx="16" />
+  <text class="mono ink" x="497" y="1203">_error.tsx</text>
+  <text class="tiny muted" x="497" y="1230">Error page.</text>
+
+  <rect class="paper" x="645" y="1170" width="125" height="78" rx="16" />
+  <text class="mono ink" x="667" y="1203">500.tsx</text>
+  <text class="tiny muted" x="667" y="1230">500 page.</text>
+
+  <text class="caption muted" x="110" y="1305">These files exist because the Cloudflare/OpenNext build still expects basic Pages Router fallbacks.</text>
+
+  <!-- config/build -->
+  <rect class="folder" x="70" y="1450" width="1660" height="470" rx="28" filter="url(#shadow)" />
+  <text class="section ink" x="110" y="1505">CONFIG + BUILD</text>
+  <line class="thinRule" x1="110" y1="1529" x2="1690" y2="1529" />
+
+  <rect class="paper" x="110" y="1565" width="300" height="110" rx="18" />
+  <text class="mono ink" x="135" y="1600">package.json</text>
+  <text class="small muted" x="135" y="1630">Scripts and dependencies:</text>
+  <text class="small muted" x="135" y="1657">dev, build, type-check, deploy.</text>
+
+  <rect class="paper" x="440" y="1565" width="300" height="110" rx="18" />
+  <text class="mono ink" x="465" y="1600">package-lock.json</text>
+  <text class="small muted" x="465" y="1630">Exact installed versions.</text>
+  <text class="small muted" x="465" y="1657">Keeps installs repeatable.</text>
+
+  <rect class="paper" x="770" y="1565" width="300" height="110" rx="18" />
+  <text class="mono ink" x="795" y="1600">next.config.mjs</text>
+  <text class="small muted" x="795" y="1630">Next config plus OpenNext</text>
+  <text class="small muted" x="795" y="1657">dev initialization.</text>
+
+  <rect class="paper" x="1100" y="1565" width="300" height="110" rx="18" />
+  <text class="mono ink" x="1125" y="1600">open-next.config.ts</text>
+  <text class="small muted" x="1125" y="1630">OpenNext Cloudflare</text>
+  <text class="small muted" x="1125" y="1657">adapter config.</text>
+
+  <rect class="paper" x="1430" y="1565" width="260" height="110" rx="18" />
+  <text class="mono ink" x="1455" y="1600">wrangler.toml</text>
+  <text class="small muted" x="1455" y="1630">Worker entry plus D1,</text>
+  <text class="small muted" x="1455" y="1657">R2, AI, assets bindings.</text>
+
+  <rect class="paper" x="110" y="1710" width="300" height="110" rx="18" />
+  <text class="mono ink" x="135" y="1745">tsconfig.json</text>
+  <text class="small muted" x="135" y="1775">TypeScript rules.</text>
+  <text class="small muted" x="135" y="1802">Path aliases like @/lib.</text>
+
+  <rect class="paper" x="440" y="1710" width="300" height="110" rx="18" />
+  <text class="mono ink" x="465" y="1745">env.d.ts</text>
+  <text class="small muted" x="465" y="1775">Cloudflare env types used</text>
+  <text class="small muted" x="465" y="1802">by server code.</text>
+
+  <rect class="paper" x="770" y="1710" width="300" height="110" rx="18" />
+  <text class="mono ink" x="795" y="1745">next-env.d.ts</text>
+  <text class="small muted" x="795" y="1775">Next.js generated TypeScript</text>
+  <text class="small muted" x="795" y="1802">ambient types.</text>
+
+  <rect class="paper" x="1100" y="1710" width="300" height="110" rx="18" />
+  <text class="mono ink" x="1125" y="1745">scripts/next-build.mjs</text>
+  <text class="small muted" x="1125" y="1775">Runs Next build and patches</text>
+  <text class="small muted" x="1125" y="1802">standalone manifests.</text>
+
+  <rect class="paper" x="1430" y="1710" width="260" height="110" rx="18" />
+  <text class="mono ink" x="1455" y="1745">scripts/cf-build.mjs</text>
+  <text class="small muted" x="1455" y="1775">Builds OpenNext worker</text>
+  <text class="small muted" x="1455" y="1802">output for Cloudflare.</text>
+
+  <!-- arrows -->
+  <path class="line" d="M430 260 C520 260 585 340 610 485" />
+  <text class="tiny ink" x="505" y="278">request</text>
+
+  <path class="line" d="M420 548 C560 535 720 532 925 530" />
+  <text class="tiny ink" x="612" y="512">renders card component</text>
+
+  <path class="line" d="M420 575 C590 690 700 820 925 910" />
+  <text class="tiny ink" x="535" y="706">calls getArchiveHomeData()</text>
+
+  <path class="line" d="M1280 928 C1300 928 1315 928 1338 928" />
+  <text class="tiny ink" x="1292" y="908">uses</text>
+
+  <path class="line" d="M1515 865 C1515 690 1495 445 1515 307" />
+  <text class="tiny ink" x="1530" y="586">D1 query</text>
+
+  <path class="line" d="M770 860 C825 875 870 930 930 1070" />
+  <text class="tiny ink" x="795" y="914">media route calls</text>
+
+  <path class="line" d="M1280 1088 C1395 1088 1445 950 1515 307" />
+  <text class="tiny ink" x="1340" y="1080">R2 cache / upstream fetch</text>
+
+  <path class="softLine" d="M1280 1248 C1320 1248 1325 1248 1338 1248" />
+  <text class="tiny muted" x="1292" y="1228">optional AI helper</text>
+
+  <path class="softLine" d="M1280 930 C1320 1040 1340 1085 1338 1088" />
+  <text class="tiny muted" x="1290" y="1032">event context</text>
+
+  <path class="line" d="M930 625 C760 645 625 650 420 685" />
+  <text class="tiny ink" x="650" y="630">background mounted by page</text>
+
+  <path class="softLine" d="M1430 1622 C1380 1470 1410 1160 1515 307" />
+  <text class="tiny muted" x="1415" y="1450">bindings point to Cloudflare</text>
+
+  <path class="softLine" d="M1250 1820 C1270 1900 1470 1920 1515 307" />
+  <text class="tiny muted" x="1265" y="1880">deployment build output</text>
+
+  <path class="softLine" d="M590 1710 C590 1430 560 1160 420 920" />
+  <text class="tiny muted" x="470" y="1410">types support app code</text>
+
+  <path class="softLine" d="M590 1675 C750 1760 980 1765 1100 1765" />
+  <text class="tiny muted" x="745" y="1735">npm scripts run build helpers</text>
+
+  <!-- footer note -->
+  <text class="caption ink" x="80" y="1994">Study order: app/page.tsx -> src/lib/archive.ts -> src/components/PaperCard.tsx -> app/api/media/... -> src/lib/media.ts -> wrangler.toml.</text>
+  <text class="small muted" x="80" y="2030">Ignored on purpose: node_modules, .next, .open-next, .wrangler, screenshots, logs, temp SQL, and one-off debug scripts.</text>
+</svg>

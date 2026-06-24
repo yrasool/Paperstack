@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+
+# Next.js and Cloudflare build output
+.next/
+.open-next/
+.wrangler/
+out/
+dist/
+
+# local environment and generated types
+.env
+.env.*
+!.env.example
+cloudflare-env.d.ts
+*.tsbuildinfo
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# local screenshots and visual QA output
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# scratch SQL and debugging scripts from data cleanup work
+.tmp*
+tmp*
+scripts/tmp*
+
+# generated study documents, not needed to run the app
+scripts/build_study_manual.py
+scripts/build_issue_sql_docs.py
